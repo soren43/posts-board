@@ -1,0 +1,53 @@
+@use '../styles/mixins';
+@use '../styles/variables';
+
+:host {
+    .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: variables.$natural-white;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        z-index: 10;
+        padding: 16px;
+        text-align: center;
+
+        h1 {
+            @include mixins.title(
+                            35px,
+                            43px,
+                            700,
+                            variables.$blue-400,
+                            variables.$font-family-everett,
+                            10px
+            );
+        }
+    }
+
+    .posts-container {
+        &.gridMode {
+            display: grid;
+            grid-template-columns: repeat(10, 1fr);
+            grid-template-rows: repeat(10, auto);
+        }
+
+        &.columnsMode {
+            columns: 10;
+            margin: 0 auto;
+        }
+
+        gap: 16px;
+        padding: 140px 16px 16px 16px;
+    }
+
+    // Responsive adjustments for smaller screens
+    @media (max-width: variables.$xl) {
+        .posts-container {
+            &.gridMode {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                grid-template-rows: auto;
+            }
+        }
+    }
+}

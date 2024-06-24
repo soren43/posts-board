@@ -1,0 +1,43 @@
+@use '../styles/mixins';
+@use '../styles/variables';
+
+:host {
+    .post-wrapper {
+        padding: 20px;
+        margin-bottom: 10px;
+        break-inside: avoid;
+
+        background-color: variables.$natural-50;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        transition: transform 0.3s, box-shadow 0.3s;
+        cursor: pointer;
+        user-select: none;
+
+        &.is-selected {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            border: 2px solid variables.$blue-200;
+        }
+
+        &:hover {
+            background-color: variables.$natural-100;
+        }
+
+        &:active {
+            background-color: variables.$natural-200;;
+        }
+
+        h2 {
+            @include mixins.font-setup(
+                            20px,
+                            24px,
+                            400,
+                            variables.$blue-dark,
+                            variables.$font-family-primary
+            );
+            margin: 0;
+        }
+    }
+}

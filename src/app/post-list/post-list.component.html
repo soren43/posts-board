@@ -1,0 +1,10 @@
+<div class="header">
+  <h1>Active Post ID: {{store.selectedPostID() < 0 ? 'Not Selected Yet' : store.selectedPostID()}}</h1>
+  <button (click)="toggleGridMode()">Toggle Grid Mode</button>
+</div>
+
+<div [ngClass]="{ gridMode: isGridMode, columnsMode: !isGridMode }" class="posts-container">
+  @for (post of store.posts(); track post;) {
+   <app-post [data]="post" [isSelected]="store.selectedPostID() === post.id" (click)="updateSelected(post.id)"></app-post>
+  }
+</div>

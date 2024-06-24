@@ -1,0 +1,3 @@
+<div class="post-wrapper" [ngClass]="{ 'is-selected': isSelected() }" (click)="updateDisplayIndex()">
+  <h2>{{postDataAsArray$()[displayIndex]}}</h2>
+</div>

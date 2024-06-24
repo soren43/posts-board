@@ -1,0 +1,30 @@
+@use 'variables';
+
+@mixin font-setup(
+  $size,
+  $line-height,
+  $weight,
+  $color,
+  $font-family: variables.$font-family-primary,
+  $letter-spacing: normal
+) {
+  color: $color;
+  font-family: $font-family;
+  font-weight: $weight;
+  font-size: $size;
+  line-height: $line-height;
+  letter-spacing: $letter-spacing;
+}
+
+@mixin title(
+  $size,
+  $line-height,
+  $weight,
+  $color,
+  $font-family: variables.$font-family-primary,
+  $margin-bottom: 0
+) {
+  @include font-setup($size, $line-height, $weight, $color, $font-family);
+  margin-bottom: $margin-bottom;
+}
+
